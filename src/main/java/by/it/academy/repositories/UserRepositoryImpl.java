@@ -7,14 +7,15 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepository {
     private final List<User> users;
 
-    {
-        users = List.of(new User("Dmitriy", "Steba", 31),
-                        new User("Oleg", "Kuleshov", 38),
-                        new User("Sergey", "Ovechkin", 22));
+    public UserRepositoryImpl(List<User> users) {
+        this.users = users;
     }
 
-    public User createUser(String firstName, String secondName, int age) {
-        return null;
+    public User createUser(String firstName, String secondName,
+                           int age, String login, String password) {
+        User user = new User(firstName, secondName, age, login, password);
+        users.add(user);
+        return user;
     }
 
     public List<User> readUsers() {

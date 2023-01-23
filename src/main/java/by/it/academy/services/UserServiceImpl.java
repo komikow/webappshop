@@ -10,8 +10,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
-    public User createUser(String firstName, String secondName, int age) {
-        return null;
+    public User createUser(String firstName, String secondName,
+                           int age, String login, String password) {
+        return userRepository.createUser(firstName, secondName, age, login, password);
     }
 
     public List<User> readUsers() {
@@ -19,3 +20,4 @@ public class UserServiceImpl implements UserService {
         return userRepository.readUsers();
     }
 }
+
